@@ -5,21 +5,35 @@ services:
       context: ./cajero
     ports:
       - 6901:6901
+    volumes:
+      - cajero_data:/srv
 
   bus:
     build:
       context: ./bus
     ports:
       - 7000:7000
+    volumes:
+      - bus_data:/srv
 
   registro:
     build:
       context: ./registro
     ports:
       - 6900:6900
+    volumes:
+      - registro_data:/srv
 
   tienda:
     build:
       context: ./tienda
     ports:
       - 8888:8888
+    volumes:
+      - tienda_data:/srv
+
+volumes:
+  cajero_data:
+  bus_data:
+  registro_data:
+  tienda_data:
